@@ -1,0 +1,20 @@
+//case: Find customers' first, last names, their email and physical addresses, for customers who paid < $150
+
+SELECT last_name,first_name, email,address.address
+FROM customer
+INNER JOIN address 
+ON address.address_id = customer.address_id
+WHERE customer_id IN
+  (
+  SELECT customer_id
+  FROM customer
+  WHERE customer_id IN
+    (
+    SELECT customer_id
+    FROM payment
+    GROUP BY customer_id
+    HAVING SUM(amount) < 150
+    )
+  )
+ORDER BY last_name ASC
+;
