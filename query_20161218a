@@ -1,0 +1,13 @@
+//case question: find rentals that have been returned between may 29 and may 30th, and list the titles. 
+
+SELECT film_id, title
+FROM film
+WHERE film_id IN
+  (
+  SELECT inventory.fi;m_id
+  FROM rental
+  INNER JOIN inventory
+  ON inventory.inventory_id = rental.inventory_id
+  WHERE return_date BETWEEN '2005-05-29' AND '2005-05-30'
+  )
+;
