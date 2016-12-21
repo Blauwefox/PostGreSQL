@@ -1,0 +1,4 @@
+//MATHEMATICAL FUNCTIONS case: produce column adding customer_id to retail_id, name header as new_id
+
+SELECT customer_id + rental_id AS new_id
+FROM payment;
