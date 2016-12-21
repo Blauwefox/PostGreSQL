@@ -1,0 +1,7 @@
+//subquery case: finding films whose rental are than average price, list film titles (ascending order), film_id and rental rate 
+
+SELECT film_id, title, rental_rate
+FROM film
+WHERE rental_rate > (SELECT AVG(rental_rate) FROM film)
+ORDER BY title ASC;
+                  
