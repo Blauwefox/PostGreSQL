@@ -1,0 +1,6 @@
+//EXTRACT function case: Find the sum of the amount for each month, ordered ASC by sum 
+
+SELECT SUM(amount), EXTRACT(month FROM payment_date) AS month_total
+FROM payment
+GROUP BY month
+ORDER BY SUM(amount);
