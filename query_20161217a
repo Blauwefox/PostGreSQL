@@ -1,0 +1,5 @@
+//STRING FUNCTION case: list customer names (first, last), with emails, with last name in ascending order 
+
+SELECT first_name ||' '|| last_name AS customer_name, email 
+FROM customer
+ORDER BY last_name ASC;
